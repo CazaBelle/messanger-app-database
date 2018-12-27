@@ -1,0 +1,97 @@
+# Keep up the hard work!
+Reflect on your approach to learning - what are the blocks, the successes, the pairing communications like?
+- Make actions to improve your approach, **share** them with your pair partner, and then practice them together.
+
+Before going any further, ensure that  
+1. You have > 90% test coverage
+    - install [simple-cov](https://github.com/colszowka/simplecov) so you can get data on your code 
+2. Your environments are separate - test, development, production
+    - when you run tests, is your app connected to your test or development database?
+3. Your test database doesn't persist data longer than the execution of the test
+    - Explore [this gem](https://github.com/DatabaseCleaner/database_cleaner) to keep your test database pristine
+4. Your code is linted
+    - install [rubocop](https://github.com/rubocop-hq/rubocop) to get data on your code
+    - **NB:** use [this](https://github.com/makersacademy/scaffolint) set of rules rather than the default
+5. You can model your app
+    - Diagram requests and response through your app confidently
+    - Words like, browser, client, server, model, request, view, response, ORM, database, controller, HTTP method, URL, response data, and more should all be clearly shown on your diagram
+
+After that^ here are some more requirements for you to work towards and learn about! :blue_heart:
+
+# MOAR REQUIREMENTS
+For each of these requirements, use a **methodical problem-solving approach** to design it.
+
+1. Plan what the pages and URLs you need look like
+    - if you're not drawing something out, you're not doing it right!
+2. Get feedback from your peers - sanity check it, how could you improve it?
+3. Identify what resources or knowledge your missing and where you can find it.
+    
+## 1. CRUD
+
+#### Requirements
+  1. I want to be able to visit a specific note - see it on the page 
+    - and click a link 'edit' that shows me a form to update the text of that message.
+      - and redirects back to the index.
+    - and click a link 'delete' that deletes that message
+      - and redirects back to the index.
+#### Resources
+- [Sinatra - DataMapper CRUD](http://recipes.sinatrarb.com/p/databases/postgresql-datamapper?#label-CRUD+operations+in+routes)
+- [Sinatra - Make HTML form submissions send requests with the right HTTP METHOD](http://sinatrarb.com/configuration.html) - search for method override
+
+## 2. Run database migration from the command line
+
+#### Requirements
+  1. I want to be able to run my database upgrades or migrations from the command line using rake
+      - the tasks should be in a Rakefile
+      - the Rakefile should load all the dependencies and models it needs to be able to interact with your database
+      - and output a message about which task happened
+      - I shouldn't have an upgrade or migrate command anywhere apart from in my rake tasks
+      - Example command:
+      
+    # from your project root directory, on the command line:
+    
+    $ rake db:auto_migrate
+    Migration successful!
+    # or
+    $ rake db:auto_upgrade
+    Upgrade successful!
+
+#### Resources
+- [github - rake](https://github.com/ruby/rake)
+- [github.io - rake](https://ruby.github.io/rake/)
+
+## 3. Sinatra layouts and partials
+
+#### Requirements
+  - Update your views to take advantage of Sinatra’s layout and partial templates
+    - What is a layout template?
+    - What is a partial?
+    - How are they helpful - what problem do they solve?
+ 
+#### Resources
+- [sinatra](http://sinatrarb.com/intro.html) - command+f to `layout.erb`
+- [simple sinatra partials](http://sinatrarb.com/faq.html#partials)
+- [better sinatra partials](http://recipes.sinatrarb.com/p/helpers/partials_using_the_sinatra-partial_gem)
+
+## 4. Message Tags - TOUGH (We'll explore this after the break)
+
+#### Requirements
+  - When I create a message, I want to be able to add some text in a second input field in the form to tag my message
+    - Eg: I could write a message with text "I love writing test-driven code!", and in the second input field write "TDD" as the tag.
+    - I should be able to see the tag as well as the message text and timestamp on the index view.
+  - User
+  - I want to be able to click on the tag of any message which will take me to a view of all messages that only have that tag
+    - Similar to the dynamic ID matching for the single message show view, explore something similar:
+      -`'/messages/tags/:tag'`
+
+#### Hints
+  - You'll need to update your feature tests.
+  - You'll need to find a way to associate a tag to a message. Explore DataMapper's many to many associations and how to implement this.
+  - You'll need to understand how primary and foreign keys work - look this up.
+  - You'll need to update your databases. Explore the difference between upgrading migrating - try upgrading first.
+  - Each tag should have a unique name as well as ID - so look up if a tag of the name has already been created, so the same tag can be used for many messages
+  
+#### Resources
+- DataMapper docs
+- Sinatra docs
+- Internet

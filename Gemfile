@@ -2,20 +2,17 @@
 
 source "https://rubygems.org"
 
-git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
-
-# gem "rails"
-
-gem "rspec", "~> 3.8"
-
 gem "sinatra", "~> 2.0"
-
-gem "capybara", "~> 3.12"
-
-gem "pg", "~> 1.1"
-
 gem "data_mapper", "~> 1.2"
-
 gem "dm-postgres-adapter", "~> 1.2"
-
 gem "pry"
+
+
+group :test do
+  gem 'capybara'
+  gem 'rspec'
+  gem 'rubocop', '0.56.0'
+  gem "database_cleaner", "~> 1.7"
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+end

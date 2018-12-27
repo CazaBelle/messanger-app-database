@@ -1,3 +1,5 @@
+ENV["RACK_ENV"] ||= 'development'
+
 require "sinatra/base"
 require './lib/message'
 require 'data_mapper'
@@ -8,14 +10,12 @@ class Talk2me < Sinatra::Base
 
 
   get '/' do
-    # binding.pry
     @messages = Message.all
     erb :index
   end
 
   post '/message' do
-    @message = Message.create(:message => params[:message])
-    # binding.pry
+    Message.create(:message => params[:message])
     redirect '/'
   end
 
@@ -23,7 +23,8 @@ class Talk2me < Sinatra::Base
     @message = Message.get!(id)
     erb(:full_message)
   end
+  
 
-  # run! if app_file == $0
+  run! if app_file == $0
 
 end

@@ -32,7 +32,7 @@ feature "Message" do
 
     scenario 'will display an id with the message' do
       add_message_and_submit
-      expect(page).to have_content "8 Talk to me"
+      expect(page).to have_content "9 Talk to me"
     end
 
   end

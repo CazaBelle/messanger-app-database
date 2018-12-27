@@ -1,6 +1,18 @@
 {
   "RSpec": {
     "coverage": {
+      "/Users/carol/makers_projects/week-4/messanger-app-database/spec/features/edit_spec.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/carol/makers_projects/week-4/messanger-app-database/spec/features/full_message_spec.rb": [
         1,
         1,
@@ -15,9 +27,9 @@
       ],
       "/Users/carol/makers_projects/week-4/messanger-app-database/spec/features/message_helper_spec.rb": [
         1,
-        4,
-        4,
-        4,
+        5,
+        5,
+        5,
         null
       ],
       "/Users/carol/makers_projects/week-4/messanger-app-database/spec/features/talk2me_spec.rb": [
@@ -60,9 +72,6 @@
         null,
         null
       ],
-      "/Users/carol/makers_projects/week-4/messanger-app-database/spec/features/test_id_spec.rb": [
-
-      ],
       "/Users/carol/makers_projects/week-4/messanger-app-database/spec/message_spec.rb": [
         1,
         null,
@@ -92,6 +101,6 @@
         null
       ]
     },
-    "timestamp": 1545907373
+    "timestamp": 1545922273
   }
 }

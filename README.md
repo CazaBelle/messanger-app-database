@@ -58,6 +58,11 @@ run `rspec` in the command line
 
 `database_cleaner` wipes test database after testing 
 
+RakeFile
+-------
+`rake db:auto_migrate` - allows to clear db from command line
+`rake db:auto_upgrade` - allows to upgrade from command line???
+
 Planned Extensions
 -------
 

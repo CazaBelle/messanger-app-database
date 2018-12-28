@@ -14,17 +14,16 @@
   </form>
 </div>
 
-<div>
-  <% @messages.reverse.each do |message| %>
-    <div>
-    <%= message.id %> 
-    <a href = "/message/<%= message.id %>">
-    <%= message.twenty_chars %></a> <%= message.format_time %>
-    <%end%>
+  <div>
+    <% @messages.reverse.each do |message| %>
+      <div>
+        <%= message.id %> 
+        <a href = "/message/<%= message.id %>">
+        <%= message.twenty_chars %></a> <%= message.format_time %>
+      <%end%>
+    </div>
   </div>
-  </div>
-
-  </body>
+</body>
 </html>
 
 

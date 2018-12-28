@@ -1,12 +1,15 @@
-<%= @message.message %>
-<%# a link to visit a page that will render an edit form %>
-  
-<form action="/message/<%= @message.id %>/edit">
-  <input type="submit" value="edit">
-</form>
+<br>
+  <%= @message.message %>
+</br>
 
- <form action="/message/<%= @message.id %>/delete">
-  <input name="_method" type="hidden" value="delete">
-  <input type="submit" value="delete">
-</form>
+  <form action="/message/<%= @message.id %>/edit">
+    <input type="submit" value="edit">
+  </form>
+
+
+  <form action="/message/<%= @message.id %>/delete">
+    <input name="_method" type="hidden" value="delete">
+    <input type="submit" value="delete">
+  </form>
+
 

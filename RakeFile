@@ -1,0 +1,18 @@
+
+require_relative 'app'
+require './lib/message'
+require 'data_mapper'
+
+namespace :db do
+  task :auto_migrate do
+      DataMapper.auto_migrate!
+      puts "Migration successful"
+  end
+end
+  
+namespace :db do
+  task :auto_upgrade do 
+    DataMapper.auto_upgrade!
+    puts "Upgrade successful"
+  end
+end

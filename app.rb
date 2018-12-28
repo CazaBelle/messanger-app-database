@@ -37,6 +37,11 @@ class Talk2me < Sinatra::Base
     redirect '/'
   end
 
+  get '/message/:id/delete' do 
+    Message.get(params[:id]).destroy
+    redirect('/')
+  end 
+
   run! if app_file == $0
 
 end

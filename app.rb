@@ -5,11 +5,16 @@ require './lib/message'
 require 'data_mapper'
 require 'pry'
 require_relative 'datamapper_setup'
+require 'sinatra/partial'
 
 class Talk2me < Sinatra::Base
   enable :sessions
   enable :method_override 
 
+  configure do
+    register Sinatra::Partial
+    set :partial_template_engine, :erb
+  end
 
   get '/' do
     @messages = Message.all

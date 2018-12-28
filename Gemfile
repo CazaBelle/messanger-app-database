@@ -6,6 +6,8 @@ gem "sinatra", "~> 2.0"
 gem "data_mapper", "~> 1.2"
 gem "dm-postgres-adapter", "~> 1.2"
 gem "pry"
+gem "rake", "~> 12.3"
+gem "sinatra-partial", "~> 1.0"
 
 
 group :test do
@@ -16,4 +18,4 @@ group :test do
   gem 'simplecov', require: false
   gem 'simplecov-console', require: false
 end
-gem "rake", "~> 12.3"
+

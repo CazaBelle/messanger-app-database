@@ -1,4 +1,4 @@
-#Messenger App
+# Messenger App
 
 Description
 -------
@@ -7,27 +7,6 @@ Initial iteration of an online messaging app. Allows millennials to:
   *See the timestamp of when messages are created 
   *Messages are shorten on the homepage
   *If user clicks on message they taken to the full message which allows editing of message or deletion
-
-Installation
--------
-`$ git clone repo name`
-
-`$ bundle` to install required gems 
-
-ORM
--------
-`Data_mapper` => need more info here
-
-
-Database configuration
--------
-`$ brew install postgresql`
-
-`$ brew services start postgresql` 
-
-Within postgres you must create a development and testing database:
- * `# CREATE DATABASE messenger_db_development`
- * `# CREATE DATABASE messenger_db_test`
 
 User Stories
 -------
@@ -46,25 +25,48 @@ User sees each message displayed on the home page abbreviated to 20 characters
 
 User can click on each message of the list which takes me to a page which shows me the whole text of the message
 for example a url could look like localhost:<port>/messages/2
-
-
 ```
+
+Installation
+-------
+$`git clone git@github.com:CazaBelle/messenger-app-database.git`
+$ `cd messanger-app-database`
+$`bundle` to install required gems 
+
+ORM
+-------
+`Data_mapper` => need more info here
+
+Database configuration
+-------
+$`brew install postgresql`
+$`brew services start postgresql` 
+
+Within postgres you must create a development and testing database:
+ * =# `CREATE DATABASE messenger_db_development`
+ * =# `CREATE DATABASE messenger_db_test`
+
+Getting started
+-------
+* Run $`rackup` to start the server
+* Open up a browser and navigate to the following page http://localhost:9292
+
+
 
 Testing
 -------
-run `rspec` in the command line 
+$`rspec`
     
-`capybara` enables feature testing
-
-`database_cleaner` wipes test database after testing 
+This app if configured with `capybara` for feature testing and `database_cleaner` to wipe the testing db after each run 
 
 RakeFile
 -------
-`rake db:auto_migrate` - allows to clear db from command line
-`rake db:auto_upgrade` - allows to upgrade from command line???
+$ `rake db:auto_migrate` - clears db
+$ `rake db:auto_upgrade` - data with persist 
 
 Planned Extensions
 -------
+* Add login page
 
 Contributors 
 -------

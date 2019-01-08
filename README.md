@@ -46,23 +46,20 @@ Within postgres you must create a development and testing database:
  * =# `CREATE DATABASE messenger_db_development`
  * =# `CREATE DATABASE messenger_db_test`
 
+$ `rake db:auto_migrate RACK_ENV=development` - create tables 
+$ `rake db:auto_upgrade RACK_ENV=development` - ensure that data persists in tables
+
 Getting started
 -------
 * Run $`rackup` to start the server
 * Open up a browser and navigate to the following page http://localhost:9292
 
-
-
 Testing
 -------
-$`rspec`
+$ `rake db:auto_migrate RACK_ENV=test ` *need to set RACK_ENV to test as will default development 
+$ `rspec`
     
 This app if configured with `capybara` for feature testing and `database_cleaner` to wipe the testing db after each run 
-
-RakeFile
--------
-$ `rake db:auto_migrate` - clears db
-$ `rake db:auto_upgrade` - data with persist 
 
 Planned Extensions
 -------

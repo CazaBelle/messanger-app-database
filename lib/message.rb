@@ -1,5 +1,6 @@
-# require "pg"
+
 require "data_mapper"
+require_relative "tag"
 
 class Message
   include DataMapper::Resource
@@ -7,6 +8,8 @@ class Message
   property :id, Serial
   property :message, String
   property :created_at, DateTime
+
+  has n, :tags, :through => Resource
 
   def twenty_chars
     @message[0...20]

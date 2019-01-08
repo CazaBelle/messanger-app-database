@@ -9,19 +9,24 @@
 <h1>TALK2ME</h1>
 <div>
   <form action="/message" method="post">
-    Message: <textarea type="text" name="message"></textarea>
+    <textarea type="text" name="message" placeholder="Add your message"></textarea>
     <div>
-      <input type="submit" value="Send">
+      <input type="text" name="tag" placeholder="Tag">
+    </div>
+    <input type="submit" value="Send">
     </div>
   </form>
 </div>
-
   <div>
     <% @messages.reverse.each do |message| %>
       <div>
         <%= message.id %> 
         <a href = "/message/<%= message.id %>">
-        <%= message.twenty_chars %></a> <%= message.format_time %>
+        <% message.tags.each do |t|%>
+          <%= t.text %>
+        <%end%>
+        <%= message.twenty_chars %></a> 
+        <%= message.format_time %>
       <%end%>
     </div>
   </div>

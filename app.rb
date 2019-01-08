@@ -2,6 +2,7 @@ ENV["RACK_ENV"] ||= 'development'
 
 require "sinatra/base"
 require './lib/message'
+require './lib/tag'
 require 'data_mapper'
 require 'pry'
 require_relative 'datamapper_setup'
@@ -18,6 +19,7 @@ class Talk2me < Sinatra::Base
 
   get '/' do
     @messages = Message.all
+    @tags = Tag.all
     erb :index
   end
 
@@ -38,12 +40,19 @@ class Talk2me < Sinatra::Base
   end 
 
   post '/message' do
-    Message.create(:message => params[:message])
+    message = Message.create(:message => params[:message])
+    tag = Tag.first_or_create(:text => params[:tag])
+    message.tags << tag
+    message.save
     redirect '/'
   end
 
-  get '/message/:id/delete' do 
-    Message.get(params[:id]).destroy
+  get '/message/:id/delete' do
+    p 'here' 
+    message = Message.get(params[:id])
+    message.destroy
+    tag = Tag.get(params[:id])
+    tag.destroy
     redirect('/')
   end 
 

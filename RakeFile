@@ -1,10 +1,13 @@
 
 require_relative 'app'
 require './lib/message'
+require './lib/tag'
 require 'data_mapper'
+require 'rspec/core/rake_task'
 
+# RSpec::Core::RakeTask.new :spec
 
-task default: [:spec]
+# task default: [:spec]
 
 namespace :db do
   task :auto_migrate do
@@ -19,3 +22,5 @@ namespace :db do
     puts "Upgrade successful"
   end
 end
+
+task default: [:spec]

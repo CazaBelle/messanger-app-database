@@ -23,6 +23,14 @@ class Talk2me < Sinatra::Base
     erb :index
   end
 
+  post '/message' do
+    message = Message.create(:message => params[:message])
+    tag = Tag.first_or_create(:text => params[:tag])
+    message.tags << tag
+    message.save
+    redirect '/'
+  end
+
   get '/message/:id' do |id|
     @message = Message.get!(id)
     erb(:full_message)
@@ -39,20 +47,19 @@ class Talk2me < Sinatra::Base
     redirect '/'
   end 
 
-  post '/message' do
-    message = Message.create(:message => params[:message])
-    tag = Tag.first_or_create(:text => params[:tag])
-    message.tags << tag
-    message.save
-    redirect '/'
-  end
-
-  get '/message/:id/delete' do
+  delete '/message/:id' do
     p 'here' 
     message = Message.get(params[:id])
-    message.destroy
     tag = Tag.get(params[:id])
-    tag.destroy
+    message.message_tags.all.destroy
+    tag.tag_messages.all.destroy
+    # message = Message.get(params[:id])
+    # tag = Tag.get(params[:id])
+    # MessageTag.get(:message => message, :text => tag).destroy
+    # message = Message.get(params[:id])
+    # message.destroy
+    # tag = Tag.get(params[:id])
+    # tag.destroy
     redirect('/')
   end 
 

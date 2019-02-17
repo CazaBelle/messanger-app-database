@@ -3,10 +3,10 @@
 Description
 -------
 Initial iteration of an online messaging app. Allows millennials to:
-  *Send messages
-  *See the timestamp of when messages are created 
-  *Messages are shorten on the homepage
-  *If user clicks on message they taken to the full message which allows editing of message or deletion
+  * Send messages
+  * See the timestamp of when messages are created 
+  * Messages are shorten on the homepage
+  * If user clicks on message they taken to the full message which allows editing of message or deletion
 
 User Stories
 -------
@@ -29,13 +29,13 @@ for example a url could look like localhost:<port>/messages/2
 
 Installation
 -------
-$`git clone git@github.com:CazaBelle/messenger-app-database.git`
-$ `cd messanger-app-database`
-$`bundle` to install required gems 
+* $`git clone git@github.com:CazaBelle/messenger-app-database.git`
+* $ `cd messanger-app-database`
+* $`bundle` #installs required gems 
 
 ORM
 -------
-`Data_mapper` => need more info here
+`Data_mapper`
 
 Database configuration
 -------
@@ -56,18 +56,18 @@ Getting started
 
 Testing
 -------
-$ `rake db:auto_migrate RACK_ENV=test ` *need to set RACK_ENV to test as will default development 
-$ `rspec`
-    
 This app if configured with `capybara` for feature testing and `database_cleaner` to wipe the testing db after each run 
 
+* $ `rake db:auto_migrate RACK_ENV=test` #need to set RACK_ENV=test otherwise defaults to development 
+* $ `rspec`
+    
 Planned Extensions
 -------
 * Add login page
 
 Contributors 
 -------
-Adam Lodowski 
-Jacques Laffy
-Subomi
-Carol Gardiner
+* Adam Lodowski 
+* Jacques Laffy
+* Subomi
+* Carol Gardiner
